@@ -1,0 +1,535 @@
+html {cursor: pointer;}
+
+body {
+    width: 1920px;
+    height: 800px;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/*GREY OUT SCREENSHOTARRAY*/
+#overlay {
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+/*MAIN PAGE */
+#content {
+    z-index: 10;
+    width: 1100px;
+    height: 850px;
+    margin-top: 50px;
+    border-radius: 1%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-color: white;
+}
+#divHeaderTopLeft {
+    width: 550px;
+    height: 100px;
+    float: left;
+}
+#header {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#divSmiconsTopRight {
+    width: 550px;
+    height: 100px;
+    float: left;
+}
+.smicons {
+    margin-top: 42px;
+    margin-right: 30px;
+    float: right;
+    text-align: center;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+}
+.smicons:hover {
+    z-index: 100;
+    transform: scale(1.3);
+    cursor: pointer;
+
+}
+#divStreepjesTopSpacer {
+    width: 1100px;
+    height: 50px;
+    float: left;
+
+}
+#streepjes {
+    margin-left: 37px;
+    margin-right: 38px;
+    position: absolute;
+}
+
+/*FOOTER*/
+#footer {
+    width: 1040px;
+    height: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    float: left;
+}
+#leftF {
+    width: 520px;
+    height: 50px;
+    float:left;
+}
+#leftF img {
+    padding-top: 5px;
+    padding-right: 10px;
+    float: right;
+}
+#rightF {
+    width: 520px;
+    height: 50px;
+    float:left;
+}
+#rightF p {
+    margin: 2px;
+    font-size: 10px;
+    padding-right: 10px;
+    display: block;
+}
+#rightF span {
+    text-decoration: underline;
+}
+a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:black; cursor: pointer;}
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }
+
+/* CANVAS GAME */
+#divGameCanvas {
+    width: 1040px;
+    height: 650px;
+    margin-left: 30px;
+    margin-right: 30px;
+    float: left;
+    background-image: url("../images/menuBackGround.png");
+}
+
+/* LOADING SCREEN */
+#divLoadingScreen {
+    z-index: 100000;
+    width: 1040px;
+    height: 650px;
+    position: absolute;
+    background-color: black;
+}
+#grootLogoZonderOog {
+    z-index: -1;
+    top: 150px;
+    left: 335px;
+    right: 335px;
+    position: absolute;
+}
+#loadingCircle {
+    width: 35px;
+    height: 35px;
+    z-index: 1;
+    margin-top: 252px;
+    margin-left: 485px;
+}
+#loadingText {
+    margin-top: 205px;
+    text-align: center;
+}
+/*POP-UP BOX*/
+#fullPopUpBox {
+    z-index: 100000;
+    position: absolute;
+    top: 1200px;
+    left: 1570px;
+}
+.popup {
+    width: 230px;
+    height: 260px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: deeppink;
+}
+
+/*CANVAS FOR GAME DIVS*/
+.canvas {
+    width: 1040px;
+    height: 650px;
+    position: absolute;
+}
+
+/*MENU DIV*/
+.meteoandflames {
+    z-index: 1000;
+}
+#smallMeteo {
+    z-index: 2;
+    top: 75px;
+    left: 800px;
+    position: absolute;
+}
+#smallFlame {
+    z-index: 1;
+    top: 40px;
+    left: 840px;
+    width: 75px;
+    position: absolute;
+}
+#bigMeteo {
+    z-index: 6;
+    top: 200px;
+    left: 50px;
+    position: absolute;
+}
+#bigFlame {
+    z-index: 5;
+    top: 115px;
+    left: 100px;
+    width: 200px;
+    position: absolute;
+}
+#mediumMeteo {
+    z-index: 4;
+    top: 300px;
+    left: 600px;
+    position: absolute;
+}
+#mediumFlame {
+    z-index: 3;
+    top: 270px;
+    left: 670px;
+    width: 100px;
+    position: absolute;
+}
+.rotate {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+#menuAlienZonderOog {
+    z-index: 100;
+    left: 315px;
+    top: 80px;
+    position: absolute;
+}
+#alienOog {
+    z-index: 10000;
+    position: absolute;
+    left: 385px;
+    top: 35px;
+}
+#whiteEye {
+    width:75px;
+    height:67px;
+    margin-left: 100px;
+    margin-top: 100px;
+    border-radius:100px;
+    position:relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:url('../images/witOog.png');
+}
+#pinkgreyPupil {
+    top:10px;
+    left:11px;
+    width:50px;
+    height:45px;
+    border-radius:100px;
+    position:relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:url('../images/alienOog.png');
+}
+#greyPupil {
+    width:26px;
+    height:32px;
+    top: 7px;
+    left: 12px;
+    position:relative;
+}
+#gradientPupil {
+    left:7px;
+    top:10px;
+    width:15px;
+    height:13px;
+    position:relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:url('../images/gradientOog.png');
+}
+#menu ul {
+    top: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    list-style-type: none;
+}
+#playButton {
+    top: 475px;
+    left: 402px;
+    right: 402px;
+    position: absolute;
+}
+#menu li {
+    display: inline;
+}
+
+/*HELP DIV*/
+#HELPMENU {
+    z-index: 1;
+    top: 30px;
+    left: 190px;
+    position: absolute;
+}
+#closeButton {
+    z-index: 2;
+    top: 558px;
+    left: 420px;
+    position: absolute;
+}
+
+/*OPTIONS DIV*/
+#optionsMenu {
+    z-index: 1;
+    top: 111px;
+    left: 145px;
+    position: absolute;
+}
+#backButtonOptionsMenu {
+    z-index: 2;
+    top: 500px;
+    left: 450px;
+    position: absolute;
+}
+#resetDataButton {
+    z-index: 2;
+    top: 500px;
+    left: 655px;
+    position: absolute;
+}
+#sfxSlider {
+    z-index: 2;
+    top: 290px;
+    left: 410px;
+    position: absolute;
+}
+#bgmSlider {
+    z-index: 2;
+    top: 400px;
+    left: 410px;
+    position: absolute;
+}
+input[type="range"] {
+    height: 1px;
+    width: 420px;
+    -webkit-appearance: none;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 20px;
+    width: 100%;
+    background-image: url('../images/sliderTrack.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    top: -15px;
+    height: 50px;
+    width: 50px;
+    -webkit-appearance: none;
+    background-image: url('../images/sliderThumb.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+input[type=range]:focus {
+    outline: none;
+}
+
+/*CREDITS DIV*/
+#creditsMenu {
+    z-index: 1;
+    top: 25px;
+    left: 280px;
+    position: absolute;
+}
+#backButtonCreditsMenu {
+    z-index: 2;
+    top: 535px;
+    left: 420px;
+    position: absolute;
+}
+
+/*SCORE DIV*/
+#scoreMenu {
+    z-index: 1;
+    top: 25px;
+    left: 210px;
+    position: absolute;
+}
+#backButtonScoreMenu {
+    z-index: 2;
+    top: 535px;
+    left: 420px;
+    position: absolute;
+}
+
+/*HOW DIV*/
+#backButtonHowMenu {
+    z-index: 2;
+    top: 500px;
+    left: 425px;
+    position: absolute;
+}
+
+/*GAMEPLAYDIV*/
+#gameVideoButton {
+    position: absolute;
+    top: 150px;
+    left: 186px;
+}
+
+#goBackToHow1 {
+    position: absolute;
+    top: 650px;
+    right: 0px;
+}
+
+/*CODEDIV*/
+#codeVideoButton {
+    position: absolute;
+    top: 150px;
+    left: 613px;
+}
+
+#goBackToHow2 {
+    position: absolute;
+    top: 650px;
+    right: 0px;
+}
+
+/*SCOREBOARD*/
+@font-face {
+    font-family:'DANGER MOUSE';
+    src:url('../fonts/DANGER%20MOUSE.otf');
+}
+
+.font {
+    font-family: 'DANGER MOUSE';
+}
+
+#scoreBoard {
+    position: absolute;
+    z-index: 5;
+    color: #89DCB7;
+    font-size: 1em;
+}
+
+#usernames {
+    position: absolute;
+    top: 195px;
+    left: 410px;
+    width: 150px;
+    height: 333px;
+}
+
+#scores {
+    position: absolute;
+    top: 195px;
+    left: 680px;
+    width: 77px;
+    height: 333px;
+}
+
+#usernames > div {
+   /* border: 1px solid red;*/
+    position: relative;
+    height: 20px;
+    word-wrap: break-word;
+}
+
+#scores > div {
+    /*border: 1px solid red;*/
+    position: relative;
+    height: 20px;
+    word-wrap: break-word;
+}
+
+#username1{
+    top: 30px;
+    left: 0;
+}
+#username2{
+    top: 98px;
+    left: 0;
+}
+
+#username3{
+    top: 167px;
+    left: 0;
+}
+
+#username4{
+    top: 236px;
+    left: 0;
+}
+
+#score1{
+    top: 30px;
+    left: 0;
+}
+#score2{
+    top: 98px;
+    left: 0;
+}
+
+#score3{
+    top: 167px;
+    left: 0;
+}
+
+#score4{
+    top: 236px;
+    left: 0;
+}

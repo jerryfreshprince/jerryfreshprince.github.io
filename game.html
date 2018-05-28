@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> GAME </title>
+    <link href="../css/animate.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="../script/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../script/game.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../script/gamebackgroundmusic.js"></script>
+    <link href="../css/game.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../images/hoofdDanny.ico" />
+</head>
+<body>
+<div id="container">
+        <img class="unselectable" src="../images/alienPlayer.png" id="ufo"  style="position: absolute; top: 750px; left: 20px; z-index: 3"/>
+        <div class="unselectable" id="highScore" >Score</div>
+        <div class="unselectable"> <img src="../images/gameOver.png" id="gameover_image" style="position: relative; top: 300px; margin-right: auto; margin-left: auto; display: none;"/> </div>
+        <div class="unselectable"> <img src="../images/pauzeImage.png" id="pause_image" style="position: relative; top: 300px; margin-right: auto; margin-left: auto; display: none;"/> </div>
+        <div class="unselectable"> <img src="../images/menuButtonGameInterface.png" id="goToMenuButton" style="position: relative; top: 400px; margin-right: auto; margin-left: auto; display: none; cursor: pointer;"/> </div>
+        <progress class="unselectable" id="health" value="100" max="100" style="position: absolute; top: 700px; left: 20px; z-index: 3;"></progress>
+        <input class="unselectable" id="usernameInput" type="text" placeholder="username" maxlength="10" style="display: none; width: 170px; height: 50px; position: relative; top: 450px; margin-right: auto; margin-left: auto; text-align: center; font-size:20px; font-weight: 300; padding:10px;">
+        <input class="unselectable" id="submitButton" type="button" value="SUBMIT" style="display: none; width: 170px; height: 50px; position: relative; top: 550px; margin-right: auto; margin-left: auto; text-align: center; font-size:20px; font-weight: 300; padding:10px;">
+        <img  class="unselectable" src="../images/scoreLoser.png" id="scoreLoser" style="position: absolute; top: 710px; left: 1400px; display: none;"/>
+        <div  id="outputLoserScore" class="font unselectable" style="position: absolute; top: 732px; left: 1700px; display: none; color: #89DCB7;"></div>
+        <img  class="unselectable" src="../images/scoreWinner.png" id="scoreWinner" style="position: absolute; top: 755px; left: 1400px; display: none;"/>
+        <div  id="outputWinnerScore" class="font unselectable" style="position: absolute; top: 777px; left: 1700px; display: none; color: #89DCB7;"></div>
+        <div id="outputWinnerMedal" class="font unselectable" style="position: absolute; top: 825px; left: 1700px; display: none; color: #89DCB7;"></div>
+        <img id="trophy" class="animated rollIn unselectable" style="position: absolute; top: 800px; left: 1800px; width: 500px; height: 403px; display: none;"/>
+        <img id="confetti" class="unselectable" src="../images/confetti2.gif" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;"/>
+</div>
+</body>
+</html>
+

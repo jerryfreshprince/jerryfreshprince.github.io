@@ -1,0 +1,105 @@
+#container {
+    border:1px solid black;
+    width: 2557px;
+    height: 1303px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../images/gameBackgroundOfficial.jpg") center no-repeat;
+    position: relative;
+}
+
+body {
+    background-color: #A7A8AC;
+    margin: 0;
+    overflow: hidden;
+    /*cursor: url("../images/Green%20Hand%20Pointer.cur"), pointer;*/
+}
+
+html {
+    /*cursor: url("../images/Green%20Hand%20Pointer.cur"), pointer;*/
+}
+
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#highScore {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bb0', endColorstr='#ef027d',GradientType=0);
+    background-color: lightskyblue;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:5px solid white;
+    display:inline-block;
+    cursor:pointer;
+    color: black;
+    font: 2em Arial, Helvetica, sans-serifa;
+    text-align: center;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    width:130px;
+    height:35px;
+    outline:none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
+}
+
+#health {
+    background-color: lawngreen;
+}
+
+#kogelveld {
+    width: 2557px;
+    height: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#usernameInput {
+    width: 300px;
+    height: 80px;
+    border: 5px solid white;
+    border-radius: 10px 10px;
+    background-color: transparent;
+    color: white;
+    z-index: 5;
+}
+
+#usernameInput:focus, #submitButton:focus {
+    outline: none;
+}
+
+#submitButton {
+    width: 300px;
+    height: 80px;
+    border: 5px solid white;
+    border-radius: 10px 10px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+}
+
+@font-face
+{
+    font-family:'DANGER MOUSE';
+    src:url('../fonts/DANGER%20MOUSE.otf');
+}
+
+.font {
+    font-family: 'DANGER MOUSE';
+}
+
+input[type=button] {
+    font-size:20px;
+    font-weight: 300;
+    padding:30px;
+}

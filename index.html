@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> GAME </title>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="../css/menuInterface.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css" />
+    <script src="../script/jquery-1.12.2.min.js"></script>
+    <script src="../script/menupagina.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript" src="../script/jqeye.min.js"></script>
+    <link rel="shortcut icon" href="../images/hoofdDanny.ico" />
+</head>
+<body>
+<div id="content">
+    <div id="divHeaderTopLeft"><img id="header" class="unselectable" src="../images/Header.png"/></div>
+    <div id="divSmiconsTopRight">
+        <img class="smicons unselectable" src="../images/disqusIcon.png" onclick="gaNaarDiscussionPage()"/>
+        <a href="https://www.youtube.com/channel/UCkp0EM0Eygw1OuUvt9udIew"><img class="smicons unselectable" src="../images/youtube.png"/></a>
+        <img class="smicons unselectable" style="width:32px;" src="../images/screenshotIcon.png" id="screenShotIcon"/>
+    </div>
+    <div id="divStreepjesTopSpacer"><img id="streepjes" class="unselectable" src="../images/streepjesBar.PNG"/></div>
+    <div id="divGameCanvas">
+       <div id="divLoadingScreen">
+            <img id="grootLogoZonderOog" src="../images/grootLogoZonderOog.png"/>
+            <img id="loadingCircle" src="../images/loadingCircle.gif"/>
+            <p id="loadingText">LOADING... (vA.001)</p>
+       </div>
+        <div id="divs">
+            <div id="menu" class="canvas" style="display: block;">
+                <div id="meteoandflames">
+                    <div id="meteorite1" class="meteorites">
+                        <img id="smallMeteo" class="unselectable" src="../images/smallMeteo.png"/>
+                        <img id="smallFlame" class="rotate unselectable" src="../images/greyFire.gif"/>
+                    </div>
+                    <div id="meteorite2" class="meteorites">
+                        <img id="bigMeteo" class="unselectable" src="../images/bigMeteo.png"/>
+                        <img id="bigFlame" class="rotate unselectable" src="../images/greyFire.gif"/>
+                    </div>
+                    <div id="meteorite3" class="meteorites">
+                        <img id="mediumMeteo" class="unselectable" src="../images/mediumMeteo.png"/>
+                        <img id="mediumFlame" class="rotate unselectable" src="../images/greyFire.gif"/>
+                    </div>
+                </div>
+                <div id="alienOog" class="unselectable">
+                    <div id="whiteEye" class="unselectable">
+                        <div id="pinkgreyPupil" class="unselectable">
+                            <div id="greyPupil" class="unselectable">
+                                <div id="gradientPupil" class="unselectable"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img id="menuAlienZonderOog" class="unselectable" src="../images/alienZonderOog.png"/>
+                <img id="playButton" src="../images/pinkPlayButton.png" class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+                <ul>
+                    <li class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"><img id="helpButton" class="menuButtons unselectable" src="../images/pinkHelpButton.png"/></li>
+                    <li class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"><img id="optionsButton" class="menuButtons unselectable" src="../images/pinkOptionsButton.png"/></li>
+                    <li class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"><img id="creditsButton" class="menuButtons unselectable" src="../images/pinkCreditsButton.png"/></li>
+                    <li class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"><img id="scoreButton" class="menuButtons unselectable" src="../images/pinkScoreButton.png"/></li>
+                    <li class="unselectable" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"><img id="howButton" class="menuButtons unselectable" src="../images/pinkHowButton.png"/></li>
+                </ul>
+                <audio id='menuSound' src="menuClickSound.ogg"></audio>
+            </div>
+            <div id="help" class="canvas" style="display: none; cursor: pointer;">
+                <img id="HELPMENU" class="unselectable" src="../images/HELPMENU.png">
+                <img id="closeButton" class="menuButtons unselectable" src="../images/pinkCloseButton.png" onclick="hideAllChildrenButOne('divs', 'menu');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')">
+            </div>
+            <div id="options" class="canvas" style="display: none; cursor: pointer;">
+                <img id="optionsMenu" class="unselectable" src="../images/optionsMenu.png"/>
+                <img id="backButtonOptionsMenu" class="menuButtons unselectable" src="../images/pinkBackButton.png" onclick="hideAllChildrenButOne('divs', 'menu');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+                <input type="range" id="sfxSlider" class="sliders unselectable"  min="0" max="100" value="50"/>
+                <img id="resetDataButton" class="menuButtons unselectable" src="../images/pinkResetDataButton.png" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')" onclick="resetData()"/>
+                <input type="range" id="bgmSlider" class="sliders unselectable"  min="0" max="100" value="50"/>
+            </div>
+            <div id="credits" class="canvas" style="display: none; cursor: pointer;">
+                <img id="creditsMenu" class="unselectable" src="../images/CREDITSMENU.png"/>
+                <img  id="backButtonCreditsMenu" class="menuButtons unselectable" src="../images/pinkBackButton.png" onclick="hideAllChildrenButOne('divs', 'menu');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+            </div>
+            <div id="highscore" class="canvas" style="display: none; cursor: pointer;">
+                <div id="scoreBoard">
+                    <div id="usernames">
+                        <div id="username1" class="scoreboarddiv font unselectable">PLAYER</div>
+                        <div id="username2" class="scoreboarddiv font unselectable">PLAYER</div>
+                        <div id="username3" class="scoreboarddiv font unselectable">PLAYER</div>
+                        <div id="username4" class="scoreboarddiv font unselectable">PLAYER</div>
+                    </div>
+                    <div  id=scores>
+                        <div id="score1" class="scoreboarddiv font unselectable" >0</div>
+                        <div id="score2" class="scoreboarddiv font unselectable" >0</div>
+                        <div id="score3" class="scoreboarddiv font unselectable" >0</div>
+                        <div id="score4" class="scoreboarddiv font unselectable" >0</div>
+                    </div>
+                </div>
+                <img id="scoreMenu" class="unselectable" src="../images/SCOREMENU.png"/>
+                <img id="backButtonScoreMenu" class="menuButtons unselectable" src="../images/pinkBackButton.png" onclick="hideAllChildrenButOne('divs', 'menu');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+            </div>
+            <div id="how" class="canvas" style="display: none; cursor: pointer;">
+                <img id="gameVideoButton"  class="unselectable" src="../images/gameplay.png"  onclick="hideAllChildrenButOne('divs', 'gameplayVideoDiv');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+                <img id="codeVideoButton"  class="unselectable" src="../images/code.png"  onclick="hideAllChildrenButOne('divs', 'codeVideoDiv');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+                <img id="backButtonHowMenu" class="menuButtons unselectable" src="../images/pinkBackButton.png"  onclick="hideAllChildrenButOne('divs', 'menu');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+            </div>
+            <div id="codeVideoDiv" class="canvas" style="display: none; cursor: pointer;">
+                <iframe width="1040" height="650" src="https://www.youtube.com/embed/d_YeRa5pGEw?rel=0&vq=hd1080" frameborder="0" allowfullscreen id="codeVideo" style="display: block"></iframe>
+                <img id="goBackToHow1" class="menuButtons unselectable" src="../images/pinkBackButton.png"  onclick="hideAllChildrenButOne('divs', 'how');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+            </div>
+            <div id="gameplayVideoDiv" class="canvas" style="display: none; cursor: pointer;">
+                <iframe width="1040" height="650" src="https://www.youtube.com/embed/GfnMRVeXQKI?rel=0&vq=hd1080" frameborder="0" allowfullscreen id="uitlegVideo" style="display: block"></iframe>
+                <img id="goBackToHow2" class="menuButtons unselectable" src="../images/pinkBackButton.png"  onclick="hideAllChildrenButOne('divs', 'how');" onmouseover="PlaySound('menuSound')" onmouseout="StopSound('menuSound')"/>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="leftF"><img src="../images/twinGames.png" class="unselectable" style="height: 40px;"/></div>
+        <div id="rightF">
+            <p class="unselectable">&copy; TWINgames</p>
+            <p class="unselectable"><span>Algemene voorwaarden</span> | <span>Privacybepalingen</span></p>
+            <p class="unselectable">In association with <span><a href="https://www.vives.be/">Vives (Kortrijk)</a></span></p>
+        </div>
+    </div>
+</div>
+    <div id="overlay">
+        <div id="screenShotStyler" style="position: absolute; top: 245px; left: 448px;">
+            <img id="screenshotReplacer" src="../images/screenshots/screen1.png" style="width: 1040px;"/>
+        </div>
+
+    </div>
+    <div id="fullPopUpBox" class="unselectable">
+            <div class="popup unselectable">
+                <h2 class="unselectable">Hey, you there!</h2>
+                <a class="close unselectable" id="xButton">×</a>
+                <div class="content unselectable">
+                    Thanks for visiting our website. Check out the
+                    options menu before pressing the
+                    play-button, it will explain everything you
+                    need to know. Feel free to leave a comment in
+                    the Disqus section of our page and don't do
+                    anything stupid because i'm watching you!
+                    And dont switch tabs or things could go wrong!
+                    <br>
+                    Enjoy your stay! Greetz Danny.
+                </div>
+            </div>
+    </div>
+
+<script>
+    checkCookie();
+
+    function checkCookie() {
+        var cookie = localStorage.getItem("cookie");
+        if (cookie == null) {
+            localStorage.setItem("score1", "0"); localStorage.setItem("username1", "PLAYER");
+            localStorage.setItem("score2", "0"); localStorage.setItem("username2", "PLAYER");
+            localStorage.setItem("score3", "0"); localStorage.setItem("username3", "PLAYER");
+            localStorage.setItem("score4", "0"); localStorage.setItem("username4", "PLAYER");
+            document.getElementById("score1").innerHTML = localStorage["score1"]; document.getElementById("username1").innerHTML = localStorage["username1"];
+            document.getElementById("score2").innerHTML = localStorage["score2"]; document.getElementById("username2").innerHTML = localStorage["username2"];
+            document.getElementById("score3").innerHTML = localStorage["score3"]; document.getElementById("username3").innerHTML = localStorage["username3"];
+            document.getElementById("score4").innerHTML = localStorage["score4"]; document.getElementById("username4").innerHTML = localStorage["username4"];
+            localStorage.setItem("cookie", "1keeruitvoeren");
+            veranderScoreBoard();
+        }
+        else  {
+            document.getElementById("score1").innerHTML = localStorage["score1"]; document.getElementById("username1").innerHTML = localStorage["username1"];
+            document.getElementById("score2").innerHTML = localStorage["score2"]; document.getElementById("username2").innerHTML = localStorage["username2"];
+            document.getElementById("score3").innerHTML = localStorage["score3"]; document.getElementById("username3").innerHTML = localStorage["username3"];
+            document.getElementById("score4").innerHTML = localStorage["score4"]; document.getElementById("username4").innerHTML = localStorage["username4"];
+            veranderScoreBoard();
+        }
+    }
+
+    function veranderScoreBoard() {
+        var username = localStorage["usernameLS"].toUpperCase();
+        var score = localStorage["scoreLS"];
+
+        var score4 = parseInt(localStorage["score4"]); var score3 = parseInt(localStorage["score3"]); var score2 = parseInt(localStorage["score2"]); var score1 = parseInt(localStorage["score1"]);
+
+        if(username ==(localStorage["username1"] || localStorage["username2"] || localStorage["username3"] || localStorage["username4"] )) {
+            if(username == localStorage["username1"]) {
+                if (score > score1){
+                    localStorage["score1"] = score;
+                }
+                else {
+                    localStorage["score1"] = score1;
+                }
+            } else
+
+            if(username == localStorage["username2"]) {
+                if (score > score2){
+                    localStorage["score2"] = score;
+
+                    if(score > score1) {
+                        var verwisselnaam1 = localStorage["username1"];
+                        var verwisselscore1 = localStorage["score1"];
+                        localStorage["score1"] = localStorage["score2"]; localStorage["username1"] = localStorage["username2"];
+                        localStorage["score2"] = verwisselscore1; localStorage["username2"] = verwisselnaam1;
+                    }
+                }
+                else {
+                    localStorage["score2"] = score2;
+                }
+            } else
+
+            if(username == localStorage["username3"]) {
+                if (score > score3){
+                    localStorage["score3"] = score;
+
+                    if(score > score2) {
+                        var verwisselnaam2 = localStorage["username2"];
+                        var verwisselscore2 = localStorage["score2"];
+                        localStorage["score2"] = localStorage["score3"]; localStorage["username2"] = localStorage["username3"];
+                        localStorage["score3"] = verwisselscore2; localStorage["username3"] = verwisselnaam2;
+
+                        if (score > score1) {
+                            var verwisselnaam3 = localStorage["username1"];
+                            var verwisselscore3 = localStorage["score1"];
+                            localStorage["score1"] = localStorage["score2"]; localStorage["username1"] = localStorage["username2"];
+                            localStorage["score2"] = verwisselscore3; localStorage["username2"] = verwisselnaam3;
+                        }
+                    }
+                }
+                else {
+                    localStorage["score3"] = score3;
+                }
+            } else
+
+            if(username == localStorage["username4"]) {
+                if (score > score4){
+                    localStorage["score4"] = score4;
+                    if (score > score3) {
+                        var verwisselnaam4 = localStorage["username3"];
+                        var verwisselscore4 = localStorage["score3"];
+                        localStorage["score3"] = localStorage["score4"]; localStorage["username3"] = localStorage["username4"];
+                        localStorage["score4"] = verwisselscore4; localStorage["username4"] = verwisselnaam4;
+
+                        if (score > score2) {
+                            var verwisselnaam5 = localStorage["username2"];
+                            var verwisselscore5 = localStorage["score2"];
+                            localStorage["score2"] = localStorage["score3"]; localStorage["username2"] = localStorage["username3"];
+                            localStorage["score3"] = verwisselscore5; localStorage["username3"] = verwisselnaam5;
+
+                            if(score > score1) {
+                                var verwisselnaam6 = localStorage["username1"];
+                                var verwisselscore6 = localStorage["score1"];
+                                localStorage["score1"] = localStorage["score2"]; localStorage["username1"] = localStorage["username2"];
+                                localStorage["score2"] = verwisselscore6; localStorage["username2"] = verwisselnaam6;
+                            }
+                        }
+                    }
+                }
+                else {
+                    localStorage["score3"] = score4;
+                }
+            }
+        } else {
+            if (score >= score1)
+            {
+                localStorage["score4"] = localStorage["score3"]; localStorage["username4"] = localStorage["username3"];
+                localStorage["score3"] = localStorage["score2"]; localStorage["username3"] = localStorage["username2"];
+                localStorage["score2"] = localStorage["score1"]; localStorage["username2"] = localStorage["username1"];
+                localStorage["score1"] = score;                  localStorage["username1"] = username;
+            }
+            else if (score >= score2)
+            {
+                localStorage["score4"] = localStorage["score3"]; localStorage["username4"] = localStorage["username3"];
+                localStorage["score3"] = localStorage["score2"]; localStorage["username3"] = localStorage["username2"];
+                localStorage["score2"] = score;                  localStorage["username2"] = username;
+            }
+            else if (score >= score3)
+            {
+                localStorage["score4"] = localStorage["score3"]; localStorage["username4"] = localStorage["username3"];
+                localStorage["score3"] = score;                  localStorage["username3"] = username;
+            }
+            else if (score >= score4)
+            {
+                localStorage["score4"] = score;                  localStorage["username4"] = username;
+            }
+        }
+
+        document.getElementById("score4").innerHTML = localStorage["score4"]; document.getElementById("username4").innerHTML = localStorage["username4"];
+        document.getElementById("score3").innerHTML = localStorage["score3"]; document.getElementById("username3").innerHTML = localStorage["username3"];
+        document.getElementById("score2").innerHTML = localStorage["score2"]; document.getElementById("username2").innerHTML = localStorage["username2"];
+        document.getElementById("score1").innerHTML = localStorage["score1"]; document.getElementById("username1").innerHTML = localStorage["username1"];
+
+        localStorage.removeItem("usernameLS");
+        localStorage.removeItem("scoreLS");
+    }
+
+</script>
+</body>
+</html>
+
